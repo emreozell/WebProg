@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<WebOdev.Models.Food>
-
+@inject LanguageService language
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_SiteLayout.cshtml";
@@ -50,15 +50,15 @@
                     @Html.DisplayFor(modelItem => item.Category.CategoryName)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.FoodID" class="btn btn-primary">Edit</a>
+                    <a asp-action="Edit" asp-route-id="@item.FoodID" class="btn btn-primary">@language.Getkey("Edit")</a>
 
 
                 </td>
                 <td>
-                    <a asp-action="Details" asp-route-id="@item.FoodID" class="btn btn-success">Details</a>
+                    <a asp-action="Details" asp-route-id="@item.FoodID" class="btn btn-success">@language.Getkey("Details")</a>
                 </td>
                 <td>
-                    <a asp-action="Delete" asp-route-id="@item.FoodID" class="btn btn-danger">Delete</a>
+                    <a asp-action="Delete" asp-route-id="@item.FoodID" class="btn btn-danger">@language.Getkey("Delete")</a>
                 </td>
             </tr>
         }
