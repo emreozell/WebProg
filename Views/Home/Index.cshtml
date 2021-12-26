@@ -1,0 +1,70 @@
+﻿
+@model IEnumerable<WebOdev.Models.Food>
+@inject LanguageService language
+
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<header class="bg-dark py-5">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="text-center text-white">
+            <h1 class="display-4 fw-bolder" style="color:snow">Meyve ve sebze sağlıklı yaşam anahtarıdır</h1>
+
+        </div>
+    </div>
+</header>
+
+<section class="py-5">
+    <div class="container px-4 px-lg-5 mt-5">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            @foreach (var i in Model)
+            {
+
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Product image-->
+                        <img class="card-img-top" src="~/images/@Url.Content(i.Resim)" style="width:100%;height:100%" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">@i.Name</h5>
+                                <!-- Product price-->
+                                <h3>@i.Category.CategoryName</h3>
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="/Food/Details/@i.FoodID">İncele</a></div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    </div>
+</section>
+
+
+<br />
+<br />
+<br />
+
+
+
+<script src="~/miniblog/js/jquery-3.3.1.min.js"></script>
+<script src="~/miniblog/js/jquery-migrate-3.0.1.min.js"></script>
+<script src="~/miniblog/js/jquery-ui.js"></script>
+<script src="~/miniblog/js/popper.min.js"></script>
+<script src="~/miniblog/js/bootstrap.min.js"></script>
+<script src="~/miniblog/js/owl.carousel.min.js"></script>
+<script src="~/miniblog/js/jquery.stellar.min.js"></script>
+<script src="~/miniblog/js/jquery.countdown.min.js"></script>
+<script src="~/miniblog/js/jquery.magnific-popup.min.js"></script>
+<script src="~/miniblog/js/bootstrap-datepicker.min.js"></script>
+<script src="~/miniblog/js/aos.js"></script>
+
+<script src="~/miniblog/js/main.js"></script>
+
+

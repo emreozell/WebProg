@@ -1,0 +1,82 @@
+﻿
+@inject LanguageService language
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - WebOdev</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700|Playfair+Display:400,700,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/miniblog/fonts/icomoon/style.css">
+    <link rel="stylesheet" href="~/miniblog/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/miniblog/css/magnific-popup.css">
+    <link rel="stylesheet" href="~/miniblog/css/jquery-ui.css">
+    <link rel="stylesheet" href="~/miniblog/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/miniblog/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/miniblog/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="~/miniblog/fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="~/miniblog/css/aos.css">
+
+    <link rel="stylesheet" href="~/miniblog/css/style.css">
+    <link href="~/home/css/styles.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-danger  border-bottom box-shadow mb-3" style="background-color: rgb(4 3 3 / 90%) !important;">
+            <div class="container">
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" style="color: #f9f9f9 !important;" asp-area="" asp-controller="Home" asp-action="Index">@language.Getkey("home")</a>
+                        </li>
+                       
+
+
+                        @if (User.Identity.IsAuthenticated)
+                        {
+
+                            if (User.IsInRole("Admin"))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" style="color: #f9f9f9 !important;" asp-area="" asp-controller="Chart" asp-action="Statistics">Admin Panel</a>
+                                </li>
+                            }
+
+
+                        }
+
+                    </ul>
+                    <partial name="_LoginPartial" />
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
+
+    <footer class="py-5 bg-dark">
+        <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Manavcim</p></div>
+    </footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
